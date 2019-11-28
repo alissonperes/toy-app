@@ -336,3 +336,353 @@ Migrating to CreateMicroposts (20191128164028)
   ↳ bin/rails:4
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:4
+Started GET "/" for 127.0.0.1 at 2019-11-28 13:43:26 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aperes/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 264ms (Views: 255.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 13:43:27 -0300
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 13:43:27 -0300
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 13:43:31 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:15
+  Rendered microposts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 13:51:12 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aperes/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  
+app/models/micropost.rb:3:in `<class:Micropost>'
+app/models/micropost.rb:1:in `<main>'
+app/controllers/microposts_controller.rb:7:in `index'
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 13:52:30 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:15
+  Rendered microposts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 202ms (Views: 199.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 13:52:30 -0300
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 13:52:30 -0300
+Started GET "/microposts/new" for 127.0.0.1 at 2019-11-28 13:52:33 -0300
+Processing by MicropostsController#new as HTML
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (7.5ms)
+  Rendered microposts/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 19ms (Views: 13.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 127.0.0.1 at 2019-11-28 13:52:48 -0300
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k+KCHBI6CpMTgkNFOlq5JFYjJh7haGNaQr27shPV7/vx7D/58TH2pBeiIj0L/jtEKfOISw/H/VsYtGVWyLHzJQ==", "micropost"=>{"content"=>"My first post", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  [1m[36mMicropost Create (0.3ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "My first post"], ["user_id", 1], ["created_at", "2019-11-28 16:52:48.393311"], ["updated_at", "2019-11-28 16:52:48.393311"]]
+  ↳ app/controllers/microposts_controller.rb:30
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:30
+Redirected to http://localhost:3000/microposts/1
+Completed 302 Found in 33ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/microposts/1" for 127.0.0.1 at 2019-11-28 13:52:48 -0300
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:67
+  Rendering microposts/show.html.erb within layouts/application
+  Rendered microposts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started GET "/microposts/1" for 127.0.0.1 at 2019-11-28 13:57:41 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aperes/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:67
+  Rendering microposts/show.html.erb within layouts/application
+  Rendered microposts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 235ms (Views: 218.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 13:57:41 -0300
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 13:57:41 -0300
+Started GET "/" for 127.0.0.1 at 2019-11-28 13:57:45 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-11-28 13:57:46 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.4ms)
+  Rendered users/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-11-28 13:57:47 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TRWnYsvLme7sikwhpBL+gs9Ls4cWOWkPOOtuz1EG924vGxqHKMBl2eiqLVmVtnzisJsd0viW9w5i4rArimLrsA==", "user"=>{"name"=>"", "email"=>""}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-11-28 13:59:57 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TRWnYsvLme7sikwhpBL+gs9Ls4cWOWkPOOtuz1EG924vGxqHKMBl2eiqLVmVtnzisJsd0viW9w5i4rArimLrsA==", "user"=>{"name"=>"", "email"=>""}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'EmailValidator'):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/users_controller.rb:27:in `create'
+Started POST "/users" for 127.0.0.1 at 2019-11-28 14:00:53 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TRWnYsvLme7sikwhpBL+gs9Ls4cWOWkPOOtuz1EG924vGxqHKMBl2eiqLVmVtnzisJsd0viW9w5i4rArimLrsA==", "user"=>{"name"=>"", "email"=>""}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.7ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 24ms (Views: 11.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:00:53 -0300
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:00:53 -0300
+Started POST "/users" for 127.0.0.1 at 2019-11-28 14:00:55 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iB22nxHhV3Dy53OivYXJXaLNukS89aBCciQ7xoFo3h/qEwt68uqrR/bHEtqMIUs93R0UEVJaPkMoLeUiWgzCwQ==", "user"=>{"name"=>"", "email"=>""}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.5ms)
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-11-28 14:00:57 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ywthE2gvQLnpr2PdTD4BD+URZ0/nHP3oTX6xsL/jqtipBdz2iyS8ju2PAqV9moNvmsHJGgmzY+kXd29UZIe2Bg==", "user"=>{"name"=>"", "email"=>"asdf"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-11-28 14:00:59 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iSHPfd6iRJ5H230iYCekHDpOCLP2kPKJWav4MC853/DrL3KYPam4qUP7HFpRgyZ8RZ6m5hg/bIgDoibU9F3DLg==", "user"=>{"name"=>"asdf", "email"=>"asdf"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-11-28 14:01:01 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J8TDKE6/OjjHW5mXnYzKFN3+zneJnSbHBtIx+Je+38RFyn7NrbTGD8N7+O+sKEh0oi5gImcyuMZc2+8cTNrDGg==", "user"=>{"name"=>"asdf", "email"=>"asdfsad"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-11-28 14:01:03 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 14:01:11 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:15
+  Rendered microposts/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 14:04:46 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/index.html.erb:19
+  Rendered microposts/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:04:46 -0300
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:04:46 -0300
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 14:05:15 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/index.html.erb:19
+  Rendered microposts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:05:15 -0300
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:05:15 -0300
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 14:06:08 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/index.html.erb:20
+  Rendered microposts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:06:08 -0300
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:06:08 -0300
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 14:08:57 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aperes/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/index.html.erb:20
+  Rendered microposts/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 234ms (Views: 224.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:08:57 -0300
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:08:57 -0300
+Started GET "/" for 127.0.0.1 at 2019-11-28 14:09:00 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-28 14:09:40 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:09:40 -0300
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:09:40 -0300
+Started GET "/" for 127.0.0.1 at 2019-11-28 14:10:08 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mMicropost Load (0.4ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-7aff8d9fe9e7e3698beb3ac7430f3a121d5e671091b9420722e825c05c614ad2.css" for 127.0.0.1 at 2019-11-28 14:10:08 -0300
+Started GET "/assets/application-969b296781e14bd543255bb00f8097ba345bc2f1f5154ba328c9a2da75591c06.js" for 127.0.0.1 at 2019-11-28 14:10:08 -0300
+Started GET "/microposts/new" for 127.0.0.1 at 2019-11-28 14:10:59 -0300
+Processing by MicropostsController#new as HTML
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (5.2ms)
+  Rendered microposts/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 20ms (Views: 11.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/microposts" for 127.0.0.1 at 2019-11-28 14:11:01 -0300
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A48W8G5ILLKl8pVUZWxDTtO+r4P88wpMb+K2qUeoYsZhgasVjUPQhaHS9CxUyMEurG4B1hJclE0162hNnMx+GA==", "micropost"=>{"content"=>"", "user_id"=>""}, "commit"=>"Create Micropost"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (2.5ms)
+  Rendered microposts/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 14ms (Views: 8.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2019-11-28 14:11:14 -0300
+Processing by MicropostsController#index as HTML
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/index.html.erb:20
+  Rendered microposts/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.9ms)
+
+
