@@ -7,7 +7,17 @@
 
 <p>
   <strong>User:</strong>
-  <%= @micropost.user_id %>
+  <%= @micropost.user.name %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @micropost.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @micropost.updated_at %>
 </p>
 
 <%= link_to 'Edit', edit_micropost_path(@micropost) %> |
