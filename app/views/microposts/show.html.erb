@@ -7,7 +7,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @micropost.user.name %>
+  <%= link_to @micropost.user.name, @micropost.user %>
 </p>
 
 <p>
@@ -21,4 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_micropost_path(@micropost) %> |
-<%= link_to 'Back', microposts_path %>
+<%= link_to 'All microposts', microposts_path %>
